@@ -1,0 +1,27 @@
+# version: '3.8'
+# services:
+#   mongo:
+#     image: mongo
+#     restart: always
+#     volumes:
+#       - ./data/db:/var/lib/postgresql/data
+#     environment:
+#       - MONGO_INITDB_ROOT_USERNAME:nati
+#       - MONGO_INITDB_ROOT_PASSWORD:nati
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: BackendDockerfile
+#     command: >
+#         bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+#     volumes:
+#       - .:/code
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - DB_HOST=db
+#       - POSTGRES_NAME=nati
+#       - POSTGRES_USER=nati
+#       - POSTGRES_PASSWORD=nati
+#     depends_on:
+#       - mongo
